@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Never commit secrets or runtime state, if they ever land in the repo dir
+config.json
+session_key
+*.log
+/mac-scrobbler.plist

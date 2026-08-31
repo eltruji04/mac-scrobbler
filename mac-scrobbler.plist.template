@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Template. Do not edit paths by hand: run ./install-agent.sh, which fills in
+  __INSTALL_DIR__ / __HOME__ and writes the result to
+  ~/Library/LaunchAgents/mac-scrobbler.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>mac-scrobbler</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__INSTALL_DIR__/.venv/bin/python</string>
+        <string>__INSTALL_DIR__/scrobbler.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__INSTALL_DIR__</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>StandardOutPath</key>
+    <string>__HOME__/.config/mac-scrobbler/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>__HOME__/.config/mac-scrobbler/launchd.err.log</string>
+</dict>
+</plist>
